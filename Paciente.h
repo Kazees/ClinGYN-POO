@@ -1,8 +1,11 @@
 #ifndef PACIENTE_H
 #define PACIENTE_H
 #include <string>
+#include <stdexcept>
 
 using std::string;
+using std::invalid_argument;
+using std::out_of_range;
 
 class Paciente
 {
@@ -13,7 +16,7 @@ class Paciente
         string sexo;
 
     public:
-        Paciente();
+        Paciente(string nome,string sexo,float peso,float altura);
         void setNome(string nome) {this->nome=nome;};
         void setPeso(float peso);
         void setAltura(float altura);
