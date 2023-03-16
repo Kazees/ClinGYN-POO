@@ -9,7 +9,7 @@ void Paciente::setSexo(string sexo)
 
     else
     {
-        throw string("Genero nao cadastrado");
+        throw invalid_argument("Genero nao cadastrado");
     }
 }
 
@@ -17,7 +17,7 @@ void Paciente::setAltura(float altura)
 {
     if(altura<=0)
     {
-        throw string("Numero tem que ser maior que zero");
+        throw out_of_range("Valor tem que ser maior que zero");
     }
 
     if(altura>=100) // Está em centímetros
@@ -32,14 +32,16 @@ void Paciente::setPeso(float peso)
 {
     if(peso<=0)
     {
-        throw string("Numero tem que ser maior que zero");
+        throw out_of_range("Valor tem que ser maior que zero");
     }
 
     this->peso=peso;
 }
 
-Paciente::Paciente()
+Paciente::Paciente(string nome,string sexo,float peso,float altura)
 {
-    peso=0;
-    altura=0;
+    setNome(nome);
+    setSexo(sexo);
+    setPeso(peso);
+    setAltura(altura);
 }
